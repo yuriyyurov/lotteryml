@@ -1,2 +1,5 @@
 checkpoints/powerball_pretrain_main.pt
 checkpoints/powerball_set.pt
+powerball_set/__pycache__/predict_powerball_set.cpython-313.pyc
+powerball_set/__pycache__/train_powerball_set.cpython-313.pyc
+powerball_set/__pycache__/__init__.cpython-313.pyc
