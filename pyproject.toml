@@ -1,0 +1,20 @@
+[build-system]
+requires = ["hatchling>=1.24.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "lotteryml"
+version = "0.1.0"
+description = "Minimal, research-oriented PyTorch training harness for lotto/powerball sequence modeling."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "numpy>=1.24",
+  "torch",
+  "pdfplumber>=0.11.0",
+]
+
+[project.urls]
+Repository = "https://example.invalid/lotteryml"
+
+

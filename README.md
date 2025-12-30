@@ -124,6 +124,24 @@ Or, if using a requirements file:
 For GPU support, install the appropriate PyTorch build from:  
 https://pytorch.org/get-started/locally/
 
+### Install (uv)
+
+If you use [`uv`](https://github.com/astral-sh/uv), this repo now includes a `pyproject.toml`.
+
+- Create/update the local venv + install deps (creates `.venv/`):
+
+    uv sync
+
+- Run scripts inside the locked environment:
+
+    uv run python train_lottomax_set.py --help
+
+To update dependencies:
+
+    uv add numpy torch pdfplumber
+    uv lock
+    uv sync
+
 ---
 
 ## Usage
