@@ -16,15 +16,33 @@ from typing import List, Tuple
 
 import torch
 
-from powerball_set.train_powerball_set import (
-    DrawTransformer,
-    MAIN_K,
-    MAIN_MAX,
-    PB_MAX,
-    IN_DIM,
-    draw_to_feature,
-    load_powerball_csv,
-)
+# Support both:
+# - module execution: python -m powerball_set.predict_powerball_set
+# - direct file execution: python powerball_set/predict_powerball_set.py
+try:
+    from .train_powerball_set import (
+        DrawTransformer,
+        MAIN_K,
+        MAIN_MAX,
+        PB_MAX,
+        IN_DIM,
+        draw_to_feature,
+        load_powerball_csv,
+    )
+except ImportError:  # pragma: no cover
+    import os
+    import sys
+
+    sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
+    from powerball_set.train_powerball_set import (  # type: ignore
+        DrawTransformer,
+        MAIN_K,
+        MAIN_MAX,
+        PB_MAX,
+        IN_DIM,
+        draw_to_feature,
+        load_powerball_csv,
+    )
 
 
 @torch.no_grad()

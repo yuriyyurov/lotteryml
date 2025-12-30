@@ -25,17 +25,37 @@ import numpy as np
 import torch
 from torch.utils.data import DataLoader
 
-from powerball_set.train_powerball_set import (
-    MAIN_K,
-    MAIN_MAX,
-    DrawTransformer,
-    NextDrawDataset,
-    _parse_date,
-    compute_loss_and_metrics,
-    ddp_is_enabled,
-    evaluate,
-    seed_all,
-)
+# Support both:
+# - module execution: python -m powerball_set.transfer_experiment
+# - direct file execution: python powerball_set/transfer_experiment.py
+try:
+    from .train_powerball_set import (
+        MAIN_K,
+        MAIN_MAX,
+        DrawTransformer,
+        NextDrawDataset,
+        _parse_date,
+        compute_loss_and_metrics,
+        ddp_is_enabled,
+        evaluate,
+        seed_all,
+    )
+except ImportError:  # pragma: no cover
+    import os
+    import sys
+
+    sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
+    from powerball_set.train_powerball_set import (  # type: ignore
+        MAIN_K,
+        MAIN_MAX,
+        DrawTransformer,
+        NextDrawDataset,
+        _parse_date,
+        compute_loss_and_metrics,
+        ddp_is_enabled,
+        evaluate,
+        seed_all,
+    )
 
 
 Draw = Tuple[List[int], int]  # (main0, pb0) but pb0 is dummy here
