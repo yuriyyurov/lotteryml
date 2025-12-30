@@ -105,4 +105,8 @@ python3 -m powerball_set.predict_powerball_set --data_path powerball.csv --min_d
 python3 -m powerball_set.transfer_experiment --data_path powerball.csv --cutover_date 10/07/15 --context_len 16 --epochs 30 --batch_size 64
 ```
 
+## Полная пошаговая документация
+
+Смотри `powerball_set/RUNBOOK.md`.
+
 
