@@ -97,4 +97,12 @@ python powerball_set/predict_powerball_set.py --data_path powerball.csv --min_da
 python powerball_set/predict_powerball_set.py --data_path powerball.csv --min_date 10/07/15 --ckpt checkpoints/powerball_set.pt --eval_last_known
 ```
 
+## Эксперимент: есть ли перенос между эпохами (PRE↔POST)?
+
+Этот скрипт меряет transfer **только по main-числам** (5-of-69), чтобы не мешала смена механики PB:
+
+```bash
+python powerball_set/transfer_experiment.py --data_path powerball.csv --cutover_date 10/07/15 --context_len 16 --epochs 30 --batch_size 64
+```
+
 
