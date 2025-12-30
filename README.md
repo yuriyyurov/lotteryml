@@ -136,6 +136,20 @@ https://pytorch.org/get-started/locally/
       --context_len 32 \
       --batch_size 16
 
+### Powerball (5 + 1 bonus)
+
+Аналогичный пайплайн для **US Powerball** лежит в папке `powerball_set/`:
+
+    python powerball_set/train_powerball_set.py \
+      --data_path powerball.csv \
+      --epochs 50 \
+      --context_len 8 \
+      --batch_size 16
+
+Предсказание из чекпоинта:
+
+    python powerball_set/predict_powerball_set.py --data_path powerball.csv --ckpt checkpoints/powerball_set.pt
+
 ### Multi-GPU (Distributed Data Parallel)
 
 # Single-process (CPU or 1 GPU) — same hyperparameters as above
